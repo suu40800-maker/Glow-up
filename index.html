@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlowUp — Your Daily Growth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-dot"></span> GlowUp</div>
+      <nav>
+        <button class="nav-item active" data-section="dashboard">⌂ <span>Dashboard</span></button>
+        <button class="nav-item" data-section="habits">✓ <span>Habits</span></button>
+        <button class="nav-item" data-section="goals">🎯 <span>Goals</span></button>
+        <button class="nav-item" data-section="mood">♡ <span>Mood</span></button>
+        <button class="nav-item" data-section="achievements">✦ <span>Achievements</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button id="themeBtn" class="small-btn">☾ <span>Dark mode</span></button>
+        <button id="resetBtn" class="small-btn">↻ <span>Reset demo</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="todayLabel"></p>
+          <h1 id="pageTitle">Good evening, <span>Sara</span> ✨</h1>
+        </div>
+        <div class="avatar">S</div>
+      </header>
+
+      <section id="dashboard" class="section active">
+        <div class="hero-card">
+          <div>
+            <p class="eyebrow light">YOUR DAILY GLOW</p>
+            <h2>Small steps.<br><em>Big changes.</em></h2>
+            <p class="hero-copy">Build habits, reach your goals, and become a little more you every day.</p>
+          </div>
+          <div class="glow-ring">
+            <div><strong id="heroProgress">42%</strong><span>glow</span></div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span class="icon">🔥</span><div><strong id="streakStat">5</strong><small>Day streak</small></div></div>
+          <div class="stat-card"><span class="icon">✓</span><div><strong id="doneStat">3/6</strong><small>Today's habits</small></div></div>
+          <div class="stat-card"><span class="icon">⭐</span><div><strong id="xpStat">120</strong><small>XP earned</small></div></div>
+          <div class="stat-card"><span class="icon">🎯</span><div><strong id="goalStat">2</strong><small>Active goals</small></div></div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head"><div><p class="eyebrow">TODAY</p><h3>Daily habits</h3></div><button class="text-btn" data-section-link="habits">View all →</button></div>
+            <div id="habitPreview" class="habit-list"></div>
+          </div>
+          <div class="panel quote-panel">
+            <span class="quote-mark">“</span>
+            <p id="quoteText">You don't need to be perfect. You just need to keep going.</p>
+            <small>— Your GlowUp reminder</small>
+            <button id="newQuote" class="outline-btn">New reminder ✨</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="habits" class="section">
+        <div class="section-intro"><div><p class="eyebrow">CONSISTENCY</p><h2>My habits</h2><p>Little actions repeated become your lifestyle.</p></div><button id="addHabitBtn" class="primary-btn">+ Add habit</button></div>
+        <div id="habitFull" class="cards-grid"></div>
+      </section>
+
+      <section id="goals" class="section">
+        <div class="section-intro"><div><p class="eyebrow">YOUR DIRECTION</p><h2>My goals</h2><p>Give your future self something to be proud of.</p></div><button id="addGoalBtn" class="primary-btn">+ Add goal</button></div>
+        <div id="goalList" class="goal-list"></div>
+      </section>
+
+      <section id="mood" class="section">
+        <div class="section-intro"><div><p class="eyebrow">CHECK IN</p><h2>How are you feeling?</h2><p>Your mood matters too. Track it without judgment.</p></div></div>
+        <div class="mood-grid">
+          <button class="mood-card" data-mood="Great"><span>🤩</span><b>Great</b></button>
+          <button class="mood-card" data-mood="Good"><span>😊</span><b>Good</b></button>
+          <button class="mood-card" data-mood="Okay"><span>😐</span><b>Okay</b></button>
+          <button class="mood-card" data-mood="Low"><span>😔</span><b>Low</b></button>
+          <button class="mood-card" data-mood="Rough"><span>🥺</span><b>Rough</b></button>
+        </div>
+        <div class="panel mood-result"><div><p class="eyebrow">TODAY'S MOOD</p><h3 id="currentMood">Not checked in yet</h3></div><span id="moodEmoji" class="big-emoji">♡</span></div>
+      </section>
+
+      <section id="achievements" class="section">
+        <div class="section-intro"><div><p class="eyebrow">KEEP GOING</p><h2>Achievements</h2><p>Celebrate progress, not perfection.</p></div></div>
+        <div id="achievementList" class="achievement-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close" id="closeModal">×</button>
+      <p class="eyebrow" id="modalEyebrow">NEW</p>
+      <h3 id="modalTitle">Add habit</h3>
+      <input id="modalInput" type="text" placeholder="e.g. Read 20 minutes">
+      <button id="modalSave" class="primary-btn full">Save</button>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
